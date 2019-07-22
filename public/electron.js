@@ -7,10 +7,9 @@ const isDev = require("electron-is-dev");
 
 let mainWindow;
 
-// require("update-electron-app")({
-//   repo: "kitze/react-electron-example",
-//   updateInterval: "1 hour"
-// });
+require("update-electron-app")({
+  repo: "divideby/test-electron-updater",
+});
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -23,7 +22,11 @@ function createWindow() {
   mainWindow.loadURL(
     isDev
       ? "http://localhost:3000"
-      : `file://${path.join(__dirname, "../build/index.html")}`
+      : url.format({
+        pathname: path.join(__dirname, "../build/index.html"),
+        protocol: 'file:',
+        slashes: true
+      }),
   );
   mainWindow.on("closed", () => (mainWindow = null));
 }

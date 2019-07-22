@@ -22,11 +22,7 @@ function createWindow() {
   mainWindow.loadURL(
     isDev
       ? "http://localhost:3000"
-      : url.format({
-        pathname: path.join(__dirname, "../build/index.html"),
-        protocol: 'file:',
-        slashes: true
-      }),
+      : `file://${path.join(__dirname, "../build/index.html")}`
   );
   mainWindow.on("closed", () => (mainWindow = null));
 }

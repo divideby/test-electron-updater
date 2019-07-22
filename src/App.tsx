@@ -17,7 +17,7 @@ const App: React.FC = () => {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        Version: {appVersion}
+        App version: {appVersion}
       </header>
     </div>
   );
